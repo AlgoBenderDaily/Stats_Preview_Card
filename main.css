@@ -1,0 +1,219 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lexend+Deca:wght@100..900&display=swap");
+
+/* || REST */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+h1 {
+  margin: 0;
+  padding: 0;
+  font-size: inherit;
+  font-weight: normal;
+}
+
+/* || VARIABLES */
+:root {
+  /* COLORS */
+  --BODY-BG: #0a0c1c;
+  --CARD-BG: #1b1937;
+  --HERO-BG: #ab5cdb;
+  --HERO-FG: multiply;
+  --TITLE-CLR: #fff;
+  --TITLE-SPAN-CLR: #ab5cdb;
+  --DESCRIPTION-CLR: hsla(0, 0%, 100%, 0.75);
+  --STATS-NUM-CLR: #fff;
+  --STATS-LABEL-CLR: hsla(0, 0%, 100%, 0.6);
+
+  /* SHADOW */
+  --CARD-SHADOW: 0px 20px 20px -10px hsla(233, 28%, 13%, 0.2031);
+
+  /* TYPOGRAPHY-FONTS */
+  --FF1: "Inter", serif;
+  --FF2: "Lexend Deca", serif;
+
+  /* MOBILE-TYPOGRAPHY */
+  --TITLE-MOB: bold 1.75rem/2rem var(--FF1);
+  --DESCRIPTION-MOB: normal 0.9375rem/1.5625rem var(--FF1);
+  --STAT-NUM-MOB: bold 1.5rem var(--FF1);
+  --STAT-LABEL-MOB: normal 0.75rem/1.5625rem var(--FF2);
+  --STAT-LABEL-LS-MOB: 0.0625rem;
+
+  /* DESKTOP-TYPOGRAPHY */
+  --TITLE-DSK: bold 2.25rem/2.75rem var(--FF1);
+}
+
+/* || UTILITY CLASSES */
+.offscreen {
+  position: absolute;
+  left: -625rem;
+}
+
+.center {
+  text-align: center;
+}
+
+.responsive-image {
+  display: none;
+}
+
+/* MOBILE FIRST DESIGN */
+/* || GENERAL STYLES */
+html {
+  scroll-behavior: smooth;
+  font-size: 1rem; /* 16px = 1rem */
+}
+
+body {
+  min-height: 100vh;
+  max-width: 100%;
+  overflow-x: hidden;
+  background-color: var(--BODY-BG);
+  display: grid;
+  place-content: center;
+}
+
+/* FEATURE-SECTION-CARD */
+.feature-section__card {
+  max-width: 327px;
+  min-height: 780px;
+  background-color: var(--CARD-BG);
+  box-shadow: var(--CARD-SHADOW);
+  margin: 5.5rem auto;
+  border-radius: 8px;
+  overflow: hidden;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  gap: 2.5rem;
+}
+
+/* FEATURE-SECTION-IMAGE-WRAPPER */
+.feature-section__image-wrapper {
+  width: 100%;
+  height: 240px;
+  background-color: var(--HERO-BG);
+}
+
+.hero-mobile {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+  mix-blend-mode: var(--HERO-FG);
+}
+
+/* FEATURE-SECTION-TEXT-WRAPPER */
+.feature-section__text-wrapper {
+  margin: 0rem 1.9688rem 2rem 1.9375rem;
+}
+
+.feature-section__title {
+  font: var(--TITLE-MOB);
+  color: var(--TITLE-CLR);
+  margin-bottom: 1rem;
+  max-width: 264px;
+}
+
+.feature-section__title span {
+  color: var(--TITLE-SPAN-CLR);
+}
+
+.feature-section__description {
+  font: var(--DESCRIPTION-MOB);
+  color: var(--DESCRIPTION-CLR);
+  margin-bottom: 2.5rem;
+  max-width: 264px;
+}
+
+/* FEATURE-SECTION-STATS */
+.feature-section__stats {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.feature-section__stat-number {
+  font: var(--STAT-NUM-MOB);
+  color: var(--STATS-NUM-CLR);
+  margin-bottom: 0.125rem;
+}
+
+.feature-section__stat-label {
+  font: var(--STAT-LABEL-MOB);
+  letter-spacing: var(--STAT-LABEL-LS-MOB);
+  color: var(--STATS-LABEL-CLR);
+  text-transform: uppercase;
+}
+
+/* Desktop */
+@media screen and (min-width: 992px) {
+  /* FEATURE-SECTION-CARD */
+  .feature-section__card {
+    max-width: 1110px;
+    min-height: 446px;
+    margin: 11.0625rem auto;
+    flex-flow: row-reverse;
+    gap: 5.9375rem;
+  }
+
+  /* FEATURE-SECTION-IMAGE-WRAPPER */
+  .feature-section__image-wrapper {
+    width: 540px;
+    height: 100%;
+  }
+
+  .hero-mobile {
+    display: none;
+  }
+
+  .hero-desktop {
+    display: block;
+    width: 540px;
+    height: 100%;
+    object-fit: cover;
+    mix-blend-mode: var(--HERO-FG);
+  }
+
+  /* FEATURE-SECTION-TEXT-WRAPPER */
+  .feature-section__text-wrapper {
+    margin: 4.4375rem 0rem 3.6875rem 4.4688rem;
+  }
+
+  .feature-section__title {
+    font: var(--TITLE-DSK);
+    text-align: left;
+    margin-bottom: 1.5625rem;
+    max-width: 403px;
+  }
+
+  .feature-section__description {
+    text-align: left;
+    margin-bottom: 4.5rem;
+    max-width: 374px;
+  }
+
+  /* FEATURE-SECTION-STATS */
+  .feature-section__stats {
+    flex-flow: row;
+    gap: 0rem;
+    justify-content: space-between;
+    width: 351.5px;
+  }
+
+  .feature-section__stat-number {
+    text-align: left;
+  }
+
+  .feature-section__stat-label {
+    text-align: left;
+  }
+}
